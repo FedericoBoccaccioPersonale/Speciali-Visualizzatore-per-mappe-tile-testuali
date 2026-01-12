@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualizzatore mappe tile testuali</title>
+    <style>
+        .grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: center;
+        }
+        .cell {
+            border: 1px solid #000;
+        }
+        .table-container {
+            margin-top: 20px;
+        }
+        .table-container table {
+            border-collapse: collapse;
+            width: auto;
+        }
+        .table-container td {
+            border: 1px solid #000;
+            text-align: center;
+            vertical-align: middle;
+        }
+        .table-container input {
+            width: 100%;
+            height: 100%;
+            border: none;
+            text-align: center;
+            background-color: transparent;
+        }
+        .grid input {
+            margin: 0;
+            padding: 0;
+            width: 40px;
+            border: 1px solid #000;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Visualizzatore mappe tile testuali</h1>
+	<a href=https://federicoboccaccio.wordpress.com/visualizzatore-per-mappe-tile-testuali/ target=_blank>https://federicoboccaccio.wordpress.com/visualizzatore-per-mappe-tile-testuali/</a>
+    <ol>
+        <li>Usa <b>Sfoglia</b> per selezionare un' immagine, l' immagine deve contenere sprite quadrati su una sola riga.</li>
+        <li>Inserisci i valori delle tile nelle caselle di testo che si sono formate, oppure incolla nel campo di testo i valori separati da virgola.</li>
+        <li>Inserisci larghezza e altezza della mappa.</li>
+        <li>Se i valori non hanno separatore (virgola) ma sono di un unico carattere spunta la casella.</li>
+        <li>Incolla nella casella sottostante il livello attuale.</li>
+        <li>Ora puoi modificare i valori delle celle, gli sprite verranno automaticamente aggiornati</li>
+        <li>Clicca sul pulsante <b>Aggiorna CSV</b> per sovrascrivere il livello nella casella di testo in modo da poterlo copiare.</li>
+    </ol>
+    Se ricarichi la pagina dovrai ricaricare l' immagine, e modificare in un modo qualsiasi i campi di input.<br>
+    <input type="file" id="imageUpload" accept="image/*"><br>
+    <input type="text" id="valuesInput" placeholder="Elenca valori separati da virgola" />
+    <div id="imageGrid" class="grid"></div>
+    <input type="number" id="widthInput" placeholder="Larghezza (tile)" style="margin-top: 20px;">
+    <input type="number" id="heightInput" placeholder="Altezza (tile)">
+    <div>
+        <label>
+            <input type="checkbox" id="charSeparator">
+            Usa ogni carattere come elemento
+        </label>
+    </div>
+    <textarea id="csvInput" placeholder="Incolla matrice CSV qui" rows="20" cols="30"></textarea>
+    <div id="tableContainer" class="table-container"></div>
+    <button id="updateCsvButton">Aggiorna CSV</button>
+    <script src="script.js"></script>
+</body>
+</html>
